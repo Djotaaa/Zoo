@@ -1,0 +1,129 @@
+$razmak:0.2rem;
+
+ul.navbar-nav {
+    > li {
+      > a {
+        letter-spacing: $razmak;
+        text-transform: uppercase;
+        font-family: 'Times New Roman', Times, serif;
+
+        &:hover {
+        text-decoration: underline;
+        }
+    
+      }
+      
+    }
+  }
+
+  .navbar-brand {
+    background-color: whitesmoke;
+  }
+
+  footer {
+    padding: 2rem;
+    background-color: yellowgreen;
+    margin-top: 1.5rem;
+  
+    a {
+      color: white;
+      transition: color 0.4s ease-in;
+      padding: 0.2rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: $razmak;
+      font: {
+        family: 'Times New Roman', Times, serif;
+        weight: bold;
+        style: italic;
+        
+      }
+  
+      &:hover {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+
+      p {
+        color: white;
+      transition: color 0.4s ease-in;
+      padding: 0.2rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: $razmak;
+      font: {
+        family: 'Times New Roman', Times, serif;
+        weight: bold;
+        style: italic;
+        
+      }
+
+      }
+    
+  }
+
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    h5 {
+      font-weight: bold;
+      letter-spacing: $razmak;
+    }
+  }
+
+  .card {
+    margin-top: 1.5rem;
+
+  }
+  .card-text {
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .card-title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .list-unstyled {
+    li {
+        padding: 1.5rem;
+        border-bottom: 1px solid orange;
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+.photo-gallery {
+ .item {
+  padding-bottom: 30px;
+  img {
+    border: 2px solid orange;
+  }
+ }
+ .photos {
+  padding-bottom: 20px;
+ }
+}
+
+.modal-body {
+  p {
+    font-style: italic;
+  }
+}
+
+.card-body1 {
+  font: {
+    family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    size: 60px;
+     
+  }
+
+}
+
+.alert-link {
+  color: green;
+}

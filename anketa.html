@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Anketa za sve posetioce sajta i zoo vrta.">
+    <meta name="keywords" content="ZOO, ZOO Vrt, zooloski vrt, zivotinje, anketa, upitnik, pitalica">
+    <meta name="author" content="Djordje Jokic, djordjesamp22@gmail.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/navstil.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>Zoološki vrt | Anketa</title>
+    <link rel="icon" type="icon_path" href="img/logo.png">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-warning">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="ZooLogo" width="70" height="50"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="index.html">Početna strana</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-light" href="zivotinje.html">Životinje</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-light" href="galerija.html">Galerija</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-light" href="kontakt.html">Kontakt</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-light" href="kupovinakarata.html">Kupovina karata</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-light" href="anketa.html">Anketa</a>
+                      </li>
+                     
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
+    <br>
+    <div class="container">
+        <h2 class="display-4">Anketa</h2>
+        <hr style="height: 4px; color: orange;">
+        <br>
+
+        <div class="col-9">
+          <form>
+            <div class="question">
+              <label>Koliko ste zadovoljni dizajnom naše veb stranice? <i>(Ocenite odgovorom na skali od 1 do 5)</i></label>
+              <select name="pitanje1" style="width: 50rem;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div class="question">
+              <label>Koliko ste zadovoljni informacijama na našoj veb stranici? <i>(Ocenite odgovorom na skali od 1 do 5)</i></label>
+              <select name="pitanje2" style="width: 50rem;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div class="question">
+              <label>Koliko ste zadovoljni uslugama našeg zoo vrta? <i>(Ocenite odgovorom na skali od 1 do 5)</i></label>
+              <select name="pitanje3" style="width: 50rem;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-warning btn-lg">Pošalji odgovore</button>
+          </form>
+          <br>
+
+          
+          <h2 class="display-4"><b><i>Statistika</b></i></h2>
+          <hr style="height: 4px; color: orange;">
+          <div id="stats"></div>
+        
+
+
+          </div>
+          </div>
+
+          <script>
+            $(document).ready(function() {
+              $("form").submit(function(event) {
+                event.preventDefault(); 
+          
+                
+                var answers = {
+                  q1: parseInt($("select[name='pitanje1']").val()),
+                  q2: parseInt($("select[name='pitanje2']").val()),
+                  q3: parseInt($("select[name='pitanje3']").val())
+                };
+          
+                var statistics = {
+                  totalQuestions: 3,
+                  redCount: 0,
+                  yellowCount: 0,
+                  greenCount: 0,
+                  averageRating: 0
+                };
+          
+                
+                for (var key in answers) {
+                  var answer = answers[key];
+                  if (answer >= 1 && answer < 2.5) {
+                    statistics.redCount++;
+                  } else if (answer >= 2.5 && answer < 3.5) {
+                    statistics.yellowCount++;
+                  } else if (answer >= 3.5) {
+                    statistics.greenCount++;
+                  }
+          
+                  
+                  var questionNumber = key.substring(1); 
+                  statistics["pitanje" + questionNumber + "Rating"] = answer;
+                  statistics.averageRating += answer;
+                }
+          
+                
+                statistics.averageRating /= statistics.totalQuestions;
+          
+                var statsHtml = "<p>Odgovor na prvo pitanje: <span style='color :" + getTextColor(statistics.pitanje1Rating) + ";'>" + statistics.pitanje1Rating + "</span></p>";
+                statsHtml += "<p>Odgovor na drugo pitanje: <span style='color :" + getTextColor(statistics.pitanje2Rating) + ";'>" + statistics.pitanje2Rating + "</span></p>";
+                statsHtml += "<p>Odgovor na treće pitanje: <span style='color: " + getTextColor(statistics.pitanje3Rating) + ";'>" + statistics.pitanje3Rating + "</span></p>";
+                statsHtml += "<p>Prosečan odgovor: <span style='color: " + getTextColor(statistics.averageRating) + ";'>" + statistics.averageRating.toFixed(2) + "</span></p>";
+                
+          
+                $("#stats").html(statsHtml);
+              });
+          
+              function getTextColor(rating) {
+                if (rating >= 1 && rating < 2.5) {
+                  return "red";
+                } else if (rating >= 2.5 && rating < 3.5) {
+                  return "yellow";
+                } else if (rating >= 3.5) {
+                  return "green";
+                }
+              }
+              });
+              </script>
+          
+
+         
+
+   
+    <footer>
+        <div class="row text-center">
+          <div class="col-12">
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="zivotinje.html">Životinje</a></li>
+              <li class="list-inline-item"><a href="galerija.html">Galerija</a></li>
+              <li class="list-inline-item"><a href="kontakt.html">Kontakt</a></li>
+              <li class="list-inline-item"><a href="kupovinakarata.html">Kupovina karata</a></li>
+              <li class="list-inline-item"><a href="anketa.html">Anketa</a></li>
+            </ul>
+            <p>
+              &copy; ZOO Vrt Jokić 2023, <a href="mailto:zoovrt@gmail.com">zoovrt@gmail.com</a>
+              <br> <i class="bi bi-geo-fill"></i> Rajka Tadića 22, 31250 Bajina Bašta
+  
+  
+              
+            </p>
+            <ul class="list-inline">
+                <li><p>Radno vreme: <b>09:00 - 22:00</b></p></li>
+                <li><p>Vikendom: <b>10:00 - 23:00</b></p></li>
+              </ul>
+          </div>
+          </div>
+          </footer>
+  
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      
+      
+    </body>
+  </html>

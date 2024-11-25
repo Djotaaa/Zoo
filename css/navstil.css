@@ -1,0 +1,98 @@
+ul.navbar-nav > li > a {
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-family: "Times New Roman", Times, serif;
+}
+ul.navbar-nav > li > a:hover {
+  text-decoration: underline;
+}
+
+.navbar-brand {
+  background-color: whitesmoke;
+}
+
+footer {
+  padding: 2rem;
+  background-color: yellowgreen;
+  margin-top: 1.5rem;
+}
+footer a {
+  color: white;
+  transition: color 0.4s ease-in;
+  padding: 0.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.2rem;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: italic;
+}
+footer a:hover {
+  color: black;
+  text-decoration: underline;
+}
+footer p {
+  color: white;
+  transition: color 0.4s ease-in;
+  padding: 0.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.2rem;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+}
+.carousel-caption h5 {
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.card {
+  margin-top: 1.5rem;
+}
+
+.card-text {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.card-title {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.list-unstyled li {
+  padding: 1.5rem;
+  border-bottom: 1px solid orange;
+}
+.list-unstyled li a {
+  text-decoration: none;
+  color: black;
+}
+
+.photo-gallery .item {
+  padding-bottom: 30px;
+}
+.photo-gallery .item img {
+  border: 2px solid orange;
+}
+.photo-gallery .photos {
+  padding-bottom: 20px;
+}
+
+.modal-body p {
+  font-style: italic;
+}
+
+.card-body1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 60px;
+}
+
+.alert-link {
+  color: green;
+}/*# sourceMappingURL=navstil.css.map */
